@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Release tag (e.g. v1.0.0)'
+        description: 'Release tag (e.g. v1.0)'
         required: true
         type: string
 
@@ -22,7 +22,7 @@ jobs:
       - name: Build Chinese package
         shell: pwsh
         run: |
-          Compress-Archive -Path LICENSE,README.zh-CN.md,edge-remote-debugging-setup-chinese.bat,edge-remote-debugging-setup-chinese.ps1 -DestinationPath edge-cdp-remote-debugging-chinese-${{ inputs.tag }}.zip -Force
+          Compress-Archive -Path LICENSE,README.zh-CN.md,edge-cdp-remote-debugging-setup-zh-CN.bat,edge-cdp-remote-debugging-setup-zh-CN.ps1 -DestinationPath edge-cdp-remote-debugging-setup-${{ inputs.tag }}-zh-CN.zip -Force
 
       # ============================================================
       # 英文版打包步骤（暂时注释，等英文版脚本准备好后取消注释）
@@ -30,7 +30,7 @@ jobs:
       # - name: Build English package
       #   shell: pwsh
       #   run: |
-      #     Compress-Archive -Path LICENSE,README.md,edge-remote-debugging-setup-english.bat,edge-remote-debugging-setup-english.ps1 -DestinationPath edge-cdp-remote-debugging-english-${{ inputs.tag }}.zip -Force
+      #     Compress-Archive -Path LICENSE,README.md,edge-cdp-remote-debugging-setup-en.bat,edge-cdp-remote-debugging-setup-en.ps1 -DestinationPath edge-cdp-remote-debugging-setup-${{ inputs.tag }}-en.zip -Force
 
       - name: Upload Release
         uses: softprops/action-gh-release@v2
@@ -38,15 +38,15 @@ jobs:
           tag_name: ${{ inputs.tag }}
           name: ${{ inputs.tag }}
           files: |
-            edge-cdp-remote-debugging-chinese-${{ inputs.tag }}.zip
-            # edge-cdp-remote-debugging-english-${{ inputs.tag }}.zip
+            edge-cdp-remote-debugging-setup-${{ inputs.tag }}-zh-CN.zip
+            # edge-cdp-remote-debugging-setup-${{ inputs.tag }}-en.zip
           body: |
-            ## 下载 / Download
+            ## Download / 下载
 
-            - 中文版：`edge-cdp-remote-debugging-chinese-${{ inputs.tag }}.zip`
-            <!-- - English: `edge-cdp-remote-debugging-english-${{ inputs.tag }}.zip` -->
+            - 中文版：`edge-cdp-remote-debugging-setup-${{ inputs.tag }}-zh-CN.zip`
+            <!-- - English: `edge-cdp-remote-debugging-setup-${{ inputs.tag }}-en.zip` -->
 
-            ## 说明 / Notes
+            ## Notes / 说明
 
             <!-- Both versions are functionally identical. Extract the zip and double-click the `.bat` file to run. -->
 

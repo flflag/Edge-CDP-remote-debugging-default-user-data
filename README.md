@@ -1,8 +1,15 @@
-# edge-cdp-remote-debugging-default-user-data
+# Edge-CDP-remote-debugging-default-user-data
+
+[![Release](https://img.shields.io/github/v/release/flflag/edge-cdp-remote-debugging-default-user-data?label=release&color=blue)](https://github.com/flflag/edge-cdp-remote-debugging-default-user-data/releases)
+[![Downloads](https://img.shields.io/github/downloads/flflag/edge-cdp-remote-debugging-default-user-data/total?label=downloads&color=green)](https://github.com/flflag/edge-cdp-remote-debugging-default-user-data/releases)
+[![License](https://img.shields.io/github/license/flflag/edge-cdp-remote-debugging-default-user-data?label=license&color=orange)](LICENSE)
+[![Email](https://img.shields.io/badge/email-flflag@163.com-red)](mailto:flflag@163.com)
+
+**English** | [中文](README.zh-CN.md)
 
 A Windows PowerShell tool that enables **Edge DevTools remote debugging (CDP)** on the **default user data directory**, working around the Chromium 136+ security restriction that blocks remote debugging on the default profile.
 
-## The Problem
+## 🧩 The Problem
 
 Starting with Chromium 136 (Chrome and Edge), the browser refuses to open a remote debugging port when using the default user data directory. The error is:
 
@@ -12,7 +19,7 @@ DevTools remote debugging requires a non-default data directory. Specify this us
 
 This means you cannot use CDP-based tools (AI agents, automation frameworks, debuggers) on your everyday browser profile — the one that already has your logins, bookmarks, extensions, and history.
 
-## How This Tool Solves It
+## 💡 How This Tool Solves It
 
 Instead of fighting the restriction, the tool changes what Edge considers its "official" data directory:
 
@@ -24,13 +31,13 @@ Edge now treats `My User Data` as its legitimate data directory. Because it is n
 
 All your logins, bookmarks, passwords, extensions, history, and cached site data are preserved.
 
-## Requirements
+## 📋 Requirements
 
 - Windows 10 or Windows 11
 - Microsoft Edge installed at the default location
 - Administrator privileges (the script writes to `HKLM`)
 
-## Usage
+## 🚀 Usage
 
 ### Configure
 
@@ -63,20 +70,21 @@ Run the same `.bat`, choose option `2` (Rollback). This:
 4. Renames `My User Data` back to `User Data`.
 5. Removes the registry policy and the two shortcuts.
 
-## Important Limitations
+## ⚠️ Important Limitations
 
-- **This tool cannot restore extensions deleted by Edge.** Whether an extension is recognized depends on Edge's internal records (`Secure Preferences`), not the files on disk. Copying extension folders back is not enough.
 - **This is not an official Microsoft tool.** It is a community workaround. Use at your own risk.
-- The rollback process will delete the `User Data` backup snapshot. If you want to keep it, copy it elsewhere before rolling back.
+- The rollback process deletes the `User Data` backup snapshot to fully restore the original state. If you want to keep it, copy it elsewhere before rolling back.
 
-## How It Works (Technical Details)
+## 🔧 How It Works (Technical Details)
 
 Chromium 136 introduced a security check: remote debugging is disabled when the data directory matches the default path. The check uses path normalization, so trailing backslashes, `..` variants, and directory junctions do not bypass it.
 
 The registry policy `UserDataDir` changes Edge's notion of the default directory itself. Once set, Edge uses the specified path unconditionally, ignoring any `--user-data-dir` command-line flag. Because the new path is not the built-in default, the security check passes.
 
-This approach does **not** use directory junctions. Junctions are detected as "external/redirected directories" and trigger a cleanup routine that deletes extensions. The registry policy avoids this entirely.
+## 📈 Star History
 
-## License
+[![Star History Chart](https://api.star-history.com/svg?repos=flflag/edge-cdp-remote-debugging-default-user-data&type=Date)](https://star-history.com/#flflag/edge-cdp-remote-debugging-default-user-data&Date)
+
+## 📄 License
 
 MIT
