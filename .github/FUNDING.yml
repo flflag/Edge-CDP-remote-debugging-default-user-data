@@ -5,7 +5,7 @@
 ko_fi: flflag
 
 # 爱发电 (待启用，填入你的爱发电主页链接)
-# custom: ['https://afdian.com/a/你的爱发电用户名']
+custom: ['https://afdian.com/a/flflag']
 
 # 微信赞赏码 (待启用，需先上传图片到图床获取链接)
 # custom: ['https://你的图床链接/微信赞赏码图片.jpg']
