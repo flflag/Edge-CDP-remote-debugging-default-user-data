@@ -1,3 +1,5 @@
+<div align="center">
+
 # Edge-CDP-remote-debugging-default-user-data
 
 [![Release](https://img.shields.io/github/v/release/flflag/edge-cdp-remote-debugging-default-user-data?label=release&color=blue)](https://github.com/flflag/edge-cdp-remote-debugging-default-user-data/releases)
@@ -7,15 +9,15 @@
 
 **English** | [中文](README.zh-CN.md)
 
+</div>
+
 A Windows PowerShell tool that enables **Edge DevTools remote debugging (CDP)** on the **default user data directory**, working around the Chromium 136+ security restriction that blocks remote debugging on the default profile.
 
 ## 🧩 The Problem
 
 Starting with Chromium 136 (Chrome and Edge), the browser refuses to open a remote debugging port when using the default user data directory. The error is:
 
-```text
-DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.
-```
+``DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.``
 
 This means you cannot use CDP-based tools (AI agents, automation frameworks, debuggers) on your everyday browser profile — the one that already has your logins, bookmarks, extensions, and history.
 
@@ -84,6 +86,20 @@ The registry policy `UserDataDir` changes Edge's notion of the default directory
 ## 📈 Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=flflag/edge-cdp-remote-debugging-default-user-data&type=Date)](https://star-history.com/#flflag/edge-cdp-remote-debugging-default-user-data&Date)
+
+## 💖 Support
+
+If this project helps you, feel free to buy me a coffee.
+
+<div align="center">
+
+<a href="https://ko-fi.com/flflag"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" width="170" alt="Buy Me a Coffee"></a>
+
+<a href="https://afdian.com/a/flflag"><img src="https://pic1.afdiancdn.com/static/img/welcome/button-sponsorme.png" width="170" alt="爱发电"></a>
+
+<img src="https://raw.githubusercontent.com/flflag/flflag/main/assets/flflag_mm_reward_qrcode.png" alt="WeChat Reward QR Code" width="300">
+
+</div>
 
 ## 📄 License
 
