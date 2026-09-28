@@ -1,4 +1,6 @@
-# Edge-CDP-remote-debugging-default-user-data
+<div align="center">
+
+# 在Edge浏览器以默认用户数据开启 CDP 远程调试
 
 [![Release](https://img.shields.io/github/v/release/flflag/edge-cdp-remote-debugging-default-user-data?label=release&color=blue)](https://github.com/flflag/edge-cdp-remote-debugging-default-user-data/releases)
 [![Downloads](https://img.shields.io/github/downloads/flflag/edge-cdp-remote-debugging-default-user-data/total?label=downloads&color=green)](https://github.com/flflag/edge-cdp-remote-debugging-default-user-data/releases)
@@ -7,15 +9,15 @@
 
 [English](README.md) | **中文**
 
+</div>
+
 一个 Windows PowerShell 工具，让 Edge 在**默认用户数据目录**上开启 **DevTools 远程调试（CDP）**，绕过 Chromium 136+ 禁止在默认配置文件上开启远程调试的安全限制。
 
 ## 🧩 问题背景
 
 从 Chromium 136 开始（Chrome 和 Edge 均受影响），浏览器拒绝在默认用户数据目录上开启远程调试端口，报错为：
 
-```text
-DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.
-```
+``DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.``
 
 这意味着你无法在日常使用的浏览器配置文件上使用 CDP 工具（AI Agent、自动化框架、调试器）——也就是那个已经保存了你所有登录状态、书签、扩展和历史记录的配置文件。
 
@@ -84,6 +86,20 @@ Chromium 136 引入了一项安全检查：当数据目录匹配默认路径时�
 ## 📈 Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=flflag/edge-cdp-remote-debugging-default-user-data&type=Date)](https://star-history.com/#flflag/edge-cdp-remote-debugging-default-user-data&Date)
+
+## 💖 支持我
+
+如果这个项目帮到了你，欢迎打赏。
+
+<div align="center">
+
+<a href="https://ko-fi.com/flflag"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" width="170" alt="Buy Me a Coffee"></a>
+
+<a href="https://afdian.com/a/flflag"><img src="https://pic1.afdiancdn.com/static/img/welcome/button-sponsorme.png" width="170" alt="爱发电"></a>
+
+<img src="https://raw.githubusercontent.com/flflag/flflag/main/assets/flflag_mm_reward_qrcode.png" alt="WeChat Reward QR Code" width="300">
+
+</div>
 
 ## 📄 许可证
 
